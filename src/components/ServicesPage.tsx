@@ -105,24 +105,24 @@ export function ServicesPage() {
         {/* Projects Table */}
         <div className="mb-20">
           <h2 className="text-3xl text-foreground mb-8">Aktuelle Open-Source-Projekte</h2>
-          <div className="bg-white border border-border rounded-lg overflow-hidden">
+          <div className="bg-white border border-border rounded-lg overflow-hidden overflow-x-auto">
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Projektname</TableHead>
-                  <TableHead>Typ</TableHead>
-                  <TableHead>Technologie</TableHead>
-                  <TableHead>Status</TableHead>
-                  <TableHead>Beschreibung</TableHead>
+                  <TableHead className="whitespace-nowrap">Projektname</TableHead>
+                  <TableHead className="whitespace-nowrap">Typ</TableHead>
+                  <TableHead className="whitespace-nowrap">Technologie</TableHead>
+                  <TableHead className="whitespace-nowrap">Status</TableHead>
+                  <TableHead className="whitespace-nowrap">Beschreibung</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {projects.map((project, index) => (
                   <TableRow key={index}>
-                    <TableCell>{project.name}</TableCell>
-                    <TableCell>{project.type}</TableCell>
-                    <TableCell>{project.technology}</TableCell>
-                    <TableCell>
+                    <TableCell className="whitespace-nowrap">{project.name}</TableCell>
+                    <TableCell className="whitespace-nowrap">{project.type}</TableCell>
+                    <TableCell className="whitespace-nowrap">{project.technology}</TableCell>
+                    <TableCell className="whitespace-nowrap">
                       <span
                         className={`inline-flex px-2 py-1 rounded-full text-xs ${
                           project.status === 'Aktiv'

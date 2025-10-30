@@ -1,6 +1,7 @@
 import { ArrowRight, Code, Leaf, Users } from 'lucide-react';
 import { Button } from './ui/button';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import { motion } from 'motion/react';
 
 interface HomePageProps {
   onNavigate: (page: string) => void;
@@ -18,17 +19,77 @@ export function HomePage({ onNavigate }: HomePageProps) {
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/70" />
+          
+          {/* Animated Floating Elements */}
+          <motion.div
+            className="absolute top-20 left-20 w-16 h-16 bg-white/10 rounded-full backdrop-blur-sm"
+            animate={{
+              y: [0, -20, 0],
+              scale: [1, 1.1, 1],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          <motion.div
+            className="absolute bottom-32 right-32 w-24 h-24 bg-white/10 rounded-full backdrop-blur-sm"
+            animate={{
+              y: [0, 20, 0],
+              scale: [1, 1.15, 1],
+            }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 0.5
+            }}
+          />
+          <motion.div
+            className="absolute top-1/3 right-20 w-12 h-12 bg-white/10 rounded-full backdrop-blur-sm"
+            animate={{
+              y: [0, -15, 0],
+              x: [0, 10, 0],
+            }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1
+            }}
+          />
         </div>
         
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-6xl text-white mb-6">
+        <motion.div 
+          className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <motion.h1 
+            className="text-4xl md:text-6xl text-white mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
             Nachhaltige IT. Offene Zukunft.
-          </h1>
-          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
+          </motion.h1>
+          <motion.p 
+            className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
             Wir entwickeln umweltbewusste Softwarelösungen und fördern Open-Source-Projekte 
             für eine digitale Welt im Einklang mit der Natur.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          </motion.p>
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
             <Button
               onClick={() => onNavigate('services')}
               className="bg-white text-primary hover:bg-white/90"
@@ -45,25 +106,38 @@ export function HomePage({ onNavigate }: HomePageProps) {
             >
               Kontakt aufnehmen
             </Button>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* Features Section */}
       <section className="py-20 bg-muted">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <h2 className="text-3xl md:text-4xl text-foreground mb-4">
               Warum GreenCode IT?
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Wir verbinden technologische Innovation mit ökologischer Verantwortung
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Feature 1 */}
-            <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+            <motion.div 
+              className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              whileHover={{ y: -5 }}
+            >
               <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
                 <Leaf className="h-7 w-7 text-primary" />
               </div>
@@ -72,10 +146,17 @@ export function HomePage({ onNavigate }: HomePageProps) {
                 Energieeffiziente Softwareentwicklung mit minimiertem CO₂-Fußabdruck 
                 und ressourcenschonenden Lösungen.
               </p>
-            </div>
+            </motion.div>
 
             {/* Feature 2 */}
-            <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+            <motion.div 
+              className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              whileHover={{ y: -5 }}
+            >
               <div className="w-14 h-14 bg-secondary/10 rounded-lg flex items-center justify-center mb-6">
                 <Code className="h-7 w-7 text-secondary" />
               </div>
@@ -84,10 +165,17 @@ export function HomePage({ onNavigate }: HomePageProps) {
                 Transparente Entwicklung und aktive Beteiligung an der 
                 globalen Open-Source-Community.
               </p>
-            </div>
+            </motion.div>
 
             {/* Feature 3 */}
-            <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+            <motion.div 
+              className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              whileHover={{ y: -5 }}
+            >
               <div className="w-14 h-14 bg-accent/30 rounded-lg flex items-center justify-center mb-6">
                 <Users className="h-7 w-7 text-primary" />
               </div>
@@ -96,7 +184,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
                 Erfahrenes Team mit Leidenschaft für moderne Technologien 
                 und nachhaltige Innovationen.
               </p>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
