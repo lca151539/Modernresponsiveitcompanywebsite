@@ -1,7 +1,8 @@
 import { ArrowRight, Code, Leaf, Users } from 'lucide-react';
 import { Button } from './ui/button';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
+
 
 interface HomePageProps {
   onNavigate: (page: string) => void;
