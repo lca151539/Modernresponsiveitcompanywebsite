@@ -1,6 +1,6 @@
 services:
   react-app:
-    image: ghcr.io/lca151539/Modernresponsiveitcompanywebsite:latest
+    image: ghcr.io/lca151539/modernresponsiveitcompanywebsite:latest
     ports:
       - "8080:80"
     restart: always
